@@ -57,5 +57,19 @@
 <p>Примеры кода:</p>
 <code></code>
 </br></br>
+<code></code>
+</br></br>
+<code></code>
+</br></br>
+<code></code>
+</br></br>
+<code></code>
+</br></br>
+<code></code>
+</br></br>
+<code></code>
+</br></br>
+<code></code>
+</br></br>
 <h1 align = "center">Вывод</h1>
 <p>В результате проделанной лабораторной работы, я познакомилась с новыми элементами языка PHP и попрактиковалась в решении задач.</p>
