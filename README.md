@@ -50,26 +50,67 @@
 <p>Для выполнения этой лабораторной работы, я пользовалась лекционным материалом и интернет-ресурсами для поиска решений задач оформления и для поиска медиаресурсов:</p>
 
 <ul>
-<li><a href="https://youtube.com/">YouTube</a></li>
-<li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+<li><a href="https://www.php.net/">PHP website</a></li>
+<li><a href="https://www.w3schools.com/">W3Schools</a></li>
 </ul>
 
 <p>Примеры кода:</p>
-<code></code>
+<code>$displayForm = true;
+$name_1 = ""; $age_1 = ""; $city_1 = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"])) {
+  $name_1 = preg_replace("/[<>]/","",$_POST["name"]);
+  $displayForm = false;
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["age"])) {
+  $age_1 = preg_replace("/[<>]/","",$_POST["age"]);
+  $displayForm = false;
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["city"])) {
+  $city_1 = preg_replace("/[<>]/","",$_POST["city"]);
+  $displayForm = false;
+}</code>
 </br></br>
-<code></code>
+<code>function checkLogin($userLogin, $userPassword) {
+  $file = fopen("userinfo.txt", "r");
+  if ($file) {
+    while (($line = fgets($file)) !== false) {
+      $arr = explode(',', trim($line));
+      $savedLogin = $arr[0]; $savedPassword = $arr[1];
+      if ($userLogin == $savedLogin && $userPassword == $savedPassword) {
+        fclose($file);
+        return "Successfully logged in";
+      }
+    }
+    fclose($file);
+    return "Access denied";
+  } else {
+      return "File error";
+  }
+}</code>
 </br></br>
-<code></code>
+<code>$login = ""; $pass = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+  if(isset($_POST["login"]) && isset($_POST["password"])) {
+    $login = trim(preg_replace("/[<>]/","",($_POST["login"])));
+    $pass = preg_replace("/[<>]/","",$_POST["password"]);
+    $result = checkLogin($login, $pass);
+  }</code>
 </br></br>
-<code></code>
+<code>$string = 'ab abab abab abababab abea';
+$pattern = '/\b(ab)+\b/';
+
+if (preg_match_all($pattern, $string, $matches))
+  echo implode(', ', $matches[0]);
+else
+  echo "No matches";</code>
 </br></br>
-<code></code>
-</br></br>
-<code></code>
-</br></br>
-<code></code>
-</br></br>
-<code></code>
+<code>$string = 'aba accca azzza wwwwa';
+$pattern = '/a([^a]+)a/';
+preg_match_all($pattern, $string, $matches);
+$res = implode(', ', $matches[0]);
+echo $res . "\n";
+$res = preg_replace('/a+/', '!', $res);
+echo $res;</code>
 </br></br>
 <h1 align = "center">Вывод</h1>
-<p>В результате проделанной лабораторной работы, я познакомилась с новыми элементами языка PHP и попрактиковалась в решении задач.</p>
+<p>В результате проделанной лабораторной работы, я познакомилась с новыми элементами языка PHP и изучила основы написания скриптов для серверов.</p>
